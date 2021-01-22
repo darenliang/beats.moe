@@ -1,0 +1,36 @@
+.back {
+    pointer-events: none;
+    z-index: -1;
+}
+
+.text {
+    padding-top: 1%;
+    text-align: center;
+    line-height: 1.2;
+    font-family: 'Yusei Magic', sans-serif;
+    --ratio: min(1vw * 9, 1vh * 16);
+    font-size: calc(var(--ratio) / 3);
+}
+
+.warning {
+    visibility: hidden;
+    margin-top: 51%;
+    margin-left: 74%;
+    font-family: 'Yusei Magic', sans-serif;
+    --ratio: min(1vw * 9, 1vh * 16);
+    font-size: calc(var(--ratio) / 6);
+}
+
+.box {
+    position: absolute;
+    --ratio: min(100vw * 9, 100vh * 16);
+    --width: calc(var(--ratio) / 9);
+    width: var(--width);
+    --height: calc(var(--ratio) / 16);
+    top: calc((100vh - var(--height)) / 2);
+    left: calc((100vw - var(--width)) / 2);
+}
+
+#video {
+    visibility: hidden;
+}
