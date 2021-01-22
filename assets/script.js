@@ -37,6 +37,7 @@ async function start() {
 
         try {
             await document.getElementById("video").play();
+            document.getElementById("warning-box").remove();
         } catch {
             function play() {
                 document.getElementById("video").play();
