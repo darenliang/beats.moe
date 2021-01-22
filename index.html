@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJl1e20f61d6996f3dc4b8b1a307ceacb52"/>
+    <meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJl0f10d9ffc877ed2ade6e8ab1281917ec"/>
     <meta charset="utf-8">
     <title>Yotsuba Jam</title>
     <meta name="description" content="Tag along with Yotsuba in listening to some sick beats.">
@@ -247,6 +247,100 @@
         animation: 2.01s linear 0s 1 normal forwards gwd-gen-3tgfgwdanimation_gwd-keyframes;
         -webkit-animation: 2.01s linear 0s 1 normal forwards gwd-gen-3tgfgwdanimation_gwd-keyframes;
         -moz-animation: 2.01s linear 0s 1 normal forwards gwd-gen-3tgfgwdanimation_gwd-keyframes;
+    }
+
+    .gwd-img-tz6m {
+        position: absolute;
+        margin: 0px;
+        padding: 0px;
+        height: 98%;
+        left: 1%;
+        top: 1%;
+        width: 98%;
+        visibility: hidden;
+    }
+
+    @keyframes gwd-gen-zs9dgwdanimation_gwd-keyframes {
+        0% {
+            left: 1%;
+            top: 1%;
+            animation-timing-function: linear;
+            -webkit-animation-timing-function: linear;
+            -moz-animation-timing-function: linear;
+        }
+        33.3333% {
+            left: 0%;
+            top: 1%;
+            animation-timing-function: linear;
+            -webkit-animation-timing-function: linear;
+            -moz-animation-timing-function: linear;
+        }
+        66.6667% {
+            left: 1%;
+            top: 0%;
+            animation-timing-function: linear;
+            -webkit-animation-timing-function: linear;
+            -moz-animation-timing-function: linear;
+        }
+        100% {
+            left: 0%;
+            top: 0%;
+            animation-timing-function: linear;
+            -webkit-animation-timing-function: linear;
+            -moz-animation-timing-function: linear;
+        }
+    }
+
+    @-webkit-keyframes gwd-gen-zs9dgwdanimation_gwd-keyframes {
+        0% {
+            left: 1%;
+            top: 1%;
+            -webkit-animation-timing-function: linear;
+        }
+        33.3333% {
+            left: 0%;
+            top: 1%;
+            -webkit-animation-timing-function: linear;
+        }
+        66.6667% {
+            left: 1%;
+            top: 0%;
+            -webkit-animation-timing-function: linear;
+        }
+        100% {
+            left: 0%;
+            top: 0%;
+            -webkit-animation-timing-function: linear;
+        }
+    }
+
+    @-moz-keyframes gwd-gen-zs9dgwdanimation_gwd-keyframes {
+        0% {
+            left: 1%;
+            top: 1%;
+            -moz-animation-timing-function: linear;
+        }
+        33.3333% {
+            left: 0%;
+            top: 1%;
+            -moz-animation-timing-function: linear;
+        }
+        66.6667% {
+            left: 1%;
+            top: 0%;
+            -moz-animation-timing-function: linear;
+        }
+        100% {
+            left: 0%;
+            top: 0%;
+            -moz-animation-timing-function: linear;
+        }
+    }
+
+    .htmlNoPages .gwd-gen-zs9dgwdanimation {
+        animation: 0.03s linear 0s infinite normal forwards gwd-gen-zs9dgwdanimation_gwd-keyframes;
+        -webkit-animation: 0.03s linear 0s infinite normal forwards gwd-gen-zs9dgwdanimation_gwd-keyframes;
+        -moz-animation: 0.03s linear 0s infinite normal forwards gwd-gen-zs9dgwdanimation_gwd-keyframes;
     }</style>
 </head>
 
@@ -254,8 +348,9 @@
 
 <video id="video" width="0" height="0"></video>
 
-<img src="assets/yotsuba01-01.svg" id="yotsuba01-01" class="gwd-img-1o99 gwd-gen-3tgfgwdanimation back">
-<img src="assets/yotsuba02-01.svg" id="yotsuba02-01" class="gwd-img-1bbe gwd-gen-a4tsgwdanimation back">
+<img src="assets/yotsuba01-01.svg" id="yotsuba01-01" class="gwd-img-1o99 gwd-gen-3tgfgwdanimation back normal">
+<img src="assets/yotsuba02-01.svg" id="yotsuba02-01" class="gwd-img-1bbe gwd-gen-a4tsgwdanimation back normal">
+<img src="assets/yotsuba03-01.svg" id="yotsuba03-01" class="gwd-img-tz6m gwd-gen-zs9dgwdanimation back distortion">
 
 <div class="box">
     <p class="text" id="text">...</p>
@@ -265,8 +360,11 @@
     <p class="warning" id="warning">Touch anywhere or<br>press any key for sound</p>
 </div>
 
-<input class="bottomright" id="volume-control" type="range" min="0" max="100" step="1" oninput="setVolume(this.value)"
-       onchange="setVolume(this.value)">
+<div class="bottomright">
+    <button type="button" onclick="distortion()">Vibe Check</button>
+    <input id="volume-control" type="range" min="0" max="100" step="1" oninput="setVolume(this.value)"
+           onchange="setVolume(this.value)">
+</div>
 
 <script src="assets/script.js"></script>
 

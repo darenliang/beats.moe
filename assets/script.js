@@ -31,6 +31,32 @@ window.setVolume = function (val) {
 };
 
 /**
+ * Distortion
+ */
+
+let distortionToggle = false;
+
+function distortion() {
+    if (!distortionToggle) {
+        Array.from(document.getElementsByClassName("distortion")).forEach(el => {
+            el.style.visibility = "visible";
+        });
+        Array.from(document.getElementsByClassName("normal")).forEach(el => {
+            el.style.visibility = "hidden";
+        });
+        distortionToggle = !distortionToggle;
+    } else {
+        Array.from(document.getElementsByClassName("distortion")).forEach(el => {
+            el.style.visibility = "hidden";
+        });
+        Array.from(document.getElementsByClassName("normal")).forEach(el => {
+            el.style.visibility = "visible";
+        });
+        distortionToggle = !distortionToggle;
+    }
+}
+
+/**
  * Helpers
  */
 
