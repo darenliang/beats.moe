@@ -1,33 +1,66 @@
-async function start() {
-    const response = await fetch("https://openings.moe/api/list.php");
-    const list = await response.json();
+/**
+ * Set viewport height
+ */
 
-    let song;
-    while (true) {
-        song = list[Math.floor(Math.random() * list.length)];
+function setViewportHeight() {
+    document.documentElement.style.setProperty("--vh", window.innerHeight / 100 + "px");
+}
 
-        if (song.song && song.uid) {
-            break;
-        }
+setViewportHeight();
+window.addEventListener("resize", setViewportHeight);
+
+/**
+ * Helpers
+ */
+
+function generateString(len) {
+    let text = "";
+    let charset = "abcdefghijklmnopqrstuvwxyz";
+    for (let i = 0; i < len; i++)
+        text += charset.charAt(Math.floor(Math.random() * charset.length));
+    return text;
+}
+
+async function getSong() {
+    let details;
+    do {
+        const random = generateString(12);
+        const query = await fetch(`https://openings.moe/api/details.php?seed=${random}`);
+        details = await query.json();
+    } while (!details.song || !details.file);
+
+    return details;
+}
+
+function getTitle(song) {
+    if (song.artist && song.title) {
+        return `${song.artist} - ${song.title}`;
+    } else if (song.title) {
+        return song.title;
+    } else if (song.artist) {
+        return song.artist;
+    } else {
+        return "Song name not found";
     }
+}
 
-    const query = await fetch(`https://openings.moe/api/details.php?name=${song.uid}`);
-    const details = await query.json();
-
-    const title = (() => {
-        if (details.song.artist && details.song.title) {
-            return `${details.song.artist} - ${details.song.title}`;
-        } else if (details.song.title) {
-            return details.song.title;
-        } else if (details.song.artist) {
-            return details.song.artist;
-        } else {
-            return "Song name not found";
-        }
-    })();
-
+function loadSong(details) {
     document.getElementById("video").src = `https://openings.moe/video/${details.file}.webm`;
     document.getElementById("video").load();
+}
+
+
+/**
+ * Start music loop
+ */
+
+async function start() {
+    const details = await getSong();
+    console.log(details);
+
+    const title = getTitle(details.song);
+
+    loadSong(details);
 
     const date = new Date();
     const elapsed = date.getTime() - time;
@@ -57,6 +90,14 @@ async function start() {
         }
 
     }, 2000 - elapsed);
+
+    document.getElementById("video").onended = async () => {
+        const details = await getSong();
+        loadSong(details);
+        console.log(details);
+        document.getElementById("text").innerHTML = getTitle(details.song);
+        document.getElementById("video").play();
+    };
 }
 
 const date = new Date();
