@@ -10,6 +10,27 @@ setViewportHeight();
 window.addEventListener("resize", setViewportHeight);
 
 /**
+ * Volume control
+ */
+
+let volume = 50;
+const volumeStored = localStorage.getItem("volume");
+if (volumeStored === null) {
+    localStorage.setItem("volume", "50");
+} else {
+    volume = parseInt(volumeStored, 10);
+}
+
+document.getElementById("volume-control").value = volume;
+document.getElementById("video").volume = volume / 100;
+
+window.setVolume = function (val) {
+    const video = document.getElementById("video");
+    localStorage.setItem("volume", val);
+    video.volume = val / 100;
+};
+
+/**
  * Helpers
  */
 
@@ -45,8 +66,9 @@ function getTitle(song) {
 }
 
 function loadSong(details) {
-    document.getElementById("video").src = `https://openings.moe/video/${details.file}.webm`;
-    document.getElementById("video").load();
+    const video = document.getElementById("video");
+    video.src = `https://openings.moe/video/${details.file}.webm`;
+    video.load();
 }
 
 

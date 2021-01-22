@@ -2,6 +2,12 @@
     --vh: 1vh;
 }
 
+.bottomright {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
 .back {
     pointer-events: none;
     z-index: -1;

@@ -265,6 +265,9 @@
     <p class="warning" id="warning">Touch anywhere or<br>press any key for sound</p>
 </div>
 
+<input class="bottomright" id="volume-control" type="range" min="0" max="100" step="1" oninput="setVolume(this.value)"
+       onchange="setVolume(this.value)">
+
 <script src="assets/script.js"></script>
 
 </body>
