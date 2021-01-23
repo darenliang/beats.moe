@@ -7,6 +7,8 @@
     <meta name="description" content="Tag along with Yotsuba in listening to some sick beats.">
     <meta name="generator" content="Google Web Designer 10.0.2.0105">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
@@ -254,8 +256,8 @@
 
 <video id="video" width="0" height="0"></video>
 
-<img src="assets/yotsuba01-01.svg" id="yotsuba01-01" class="gwd-img-1o99 gwd-gen-3tgfgwdanimation back">
-<img src="assets/yotsuba02-01.svg" id="yotsuba02-01" class="gwd-img-1bbe gwd-gen-a4tsgwdanimation back">
+<img src="assets/yotsuba01-01.svg" id="yotsuba01-01" class="gwd-img-1o99 gwd-gen-3tgfgwdanimation back" alt="yotsuba01">
+<img src="assets/yotsuba02-01.svg" id="yotsuba02-01" class="gwd-img-1bbe gwd-gen-a4tsgwdanimation back" alt="yotsuba02">
 
 <div class="box">
     <p class="text" id="text">...</p>
@@ -265,7 +267,9 @@
     <p class="warning" id="warning">Touch anywhere or<br>press any key for sound</p>
 </div>
 
-<input class="bottomright" id="volume-control" type="range" min="0" max="100" step="1" oninput="setVolume(this.value)"
+<label for="volume-control"></label>
+<input class="bottomright" id="volume-control" type="range" min="0" max="100" step="1"
+       oninput="setVolume(this.value)"
        onchange="setVolume(this.value)">
 
 <script src="assets/script.js"></script>
