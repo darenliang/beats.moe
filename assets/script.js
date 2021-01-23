@@ -89,6 +89,7 @@ async function start() {
 
     setTimeout(async function () {
         document.getElementById("text").innerHTML = title;
+        document.title = title;
 
         try {
             await document.getElementById("video").play();
@@ -117,7 +118,11 @@ async function start() {
         const details = await getSong();
         loadSong(details);
         console.log(details);
-        document.getElementById("text").innerHTML = getTitle(details.song);
+
+        const title = getTitle(details.song);
+        document.getElementById("text").innerHTML = title;
+        document.title = title;
+
         document.getElementById("video").play();
     };
 }
