@@ -8,6 +8,17 @@
     right: 8px;
 }
 
+.bottomleft {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+}
+
+.blackicon {
+    font-size: 32px;
+    color: black;
+}
+
 .back {
     pointer-events: none;
     z-index: -1;
