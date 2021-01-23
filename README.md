@@ -1,2 +1,3 @@
 # beats.moe
-Listening to some beats
+
+Tag along with Yotsuba in listening to some sick beats.
