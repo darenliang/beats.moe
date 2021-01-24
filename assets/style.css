@@ -35,11 +35,11 @@
 
 .warning {
     visibility: hidden;
-    margin-top: 51%;
+    margin-top: 45%;
     margin-left: 74%;
     font-family: 'Yusei Magic', sans-serif;
     --ratio: min(1vw * 9, var(--vh) * 16);
-    font-size: calc(var(--ratio) / 6);
+    font-size: calc(var(--ratio) / 5);
 }
 
 .volume {
