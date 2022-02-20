@@ -43,14 +43,16 @@ function generateString(len) {
 }
 
 async function getSong() {
-    let details;
-    do {
+    try {
         const random = generateString(12);
         const query = await fetch(`https://openings.moe/api/details.php?seed=${random}`);
-        details = await query.json();
-    } while (!details.song || !details.file);
-
-    return details;
+        if (query.status !== 200) {
+            return await getSong();
+        }
+        return await query.json();
+    } catch {
+        return await getSong();
+    }
 }
 
 function getTitle(song) {
@@ -67,7 +69,7 @@ function getTitle(song) {
 
 function loadSong(details) {
     const video = document.getElementById("video");
-    video.src = `https://openings.moe/video/${details.file}.webm`;
+    video.src = `https://openings.moe/video/${details.data.file}.webm`;
     video.load();
 }
 
@@ -80,7 +82,7 @@ async function start() {
     const details = await getSong();
     console.log(details);
 
-    const title = getTitle(details.song);
+    const title = getTitle(details.data.song);
 
     loadSong(details);
 
@@ -119,7 +121,7 @@ async function start() {
         loadSong(details);
         console.log(details);
 
-        const title = getTitle(details.song);
+        const title = getTitle(details.data.song);
         document.getElementById("text").innerHTML = title;
         document.title = title;
 
