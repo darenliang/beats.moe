@@ -55,13 +55,16 @@ async function getSong() {
     }
 }
 
-function getTitle(song) {
-    if (song.artist && song.title) {
-        return `${song.artist} - ${song.title}`;
-    } else if (song.title) {
-        return song.title;
-    } else if (song.artist) {
-        return song.artist;
+function getTitle(data) {
+    if (data.song === undefined) {
+        return `${data.source} - ${data.title}`;
+    }
+    if (data.song.artist && data.song.title) {
+        return `${data.song.artist} - ${data.song.title}`;
+    } else if (data.song.title) {
+        return data.song.title;
+    } else if (data.song.artist) {
+        return data.song.artist;
     } else {
         return "Song name not found";
     }
@@ -121,7 +124,7 @@ async function start() {
         loadSong(details);
         console.log(details);
 
-        const title = getTitle(details.data.song);
+        const title = getTitle(details.data);
         document.getElementById("text").innerHTML = title;
         document.title = title;
 
