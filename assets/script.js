@@ -85,7 +85,7 @@ async function start() {
     const details = await getSong();
     console.log(details);
 
-    const title = getTitle(details.data.song);
+    const title = getTitle(details.data);
 
     loadSong(details);
 
